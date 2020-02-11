@@ -56,6 +56,7 @@ class Calc {
                     }
                     result.remove(i)
                     tmp_str = parse_string(tmp_str)
+                    System.out.println(tmp_str)
                     tmp_str = tmp_str.replace("[", "")
                     tmp_str = tmp_str.replace("]", "")
                     result.set(j, tmp_str)
@@ -130,19 +131,17 @@ class Calc {
            }
 
 
+   String hello="Hello,this is calculator!";
+   System.out.println(hello);
 
-
-
-   def hello="Hello,this is nedocalculator!";
-   def fun = hello.&toUpperCase;
-   System.out.println(fun()) ;
-   def a={int z=2,int w=2 ->
+   def a = {int z = 2,int w = 2 ->
        println  "${z} plus ${w} is ?"
    }
+
    System.out.println("1-Simple calculator\n2-Expression")
-   Scanner t= new Scanner(System.in)
-   int ch= t.nextInt()
-   if(ch==1) {
+   Scanner t = new Scanner(System.in)
+   int ch = t.nextInt()
+   if( ch == 1 ) {
        Scanner sc = new Scanner(System.in)
        x = 0; y = 0;
        choice = 0;
@@ -159,11 +158,11 @@ class Calc {
                }
                double y = Calc.init_var2();
                switch (choice) {
-                   case 1: x = Calc.sum(x, y); System.out.println("Result is"+ x); break;
-                   case 2: x = Calc.min(x, y); System.out.println("Result is"+ x); break;
-                   case 3: x = Calc.mul(x, y); System.out.println("Result is"+ x); break;
-                   case 4: x = Calc.div(x, y); System.out.println("Result is"+ x); break;
-                   case 5: x = Calc.pow(x, y); System.out.println("Result is"+ x); break;
+                   case 1: x = Calc.sum(x, y); System.out.println("Result is: " + x); break;
+                   case 2: x = Calc.min(x, y); System.out.println("Result is: " + x); break;
+                   case 3: x = Calc.mul(x, y); System.out.println("Result is: " + x); break;
+                   case 4: x = Calc.div(x, y); System.out.println("Result is: " + x); break;
+                   case 5: x = Calc.pow(x, y); System.out.println("Result is: " + x); break;
                    case 6: break;
                    case 0: System.exit(0);
                    default: System.out.println("You must enter an integer"); break;
@@ -172,10 +171,10 @@ class Calc {
            }
        }
    }
-   else if(ch==2) {
+   else if( ch == 2 ) {
        System.out.println("Enter your expression");
        Scanner sc = new Scanner(System.in);
-       String expr=sc.nextLine();
+       String expr = sc.nextLine();
        System.out.println(Calc.parse_string(expr))
 
    }
