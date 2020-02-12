@@ -96,15 +96,11 @@ class Calc {
    String hello="Hello,this is calculator!";
    System.out.println(hello);
 
-   def a = {int z = 2,int w = 2 ->
-       println  "${z} plus ${w} is ?"
-   }
-
     System.out.println("Enter your expression");
     Scanner sc = new Scanner(System.in);
     String expr = sc.nextLine();
     def a = { String str = Calc.parse_string(expr) ->
-        println "Result: ${str}"
+        System.out.println("Result: ${str}")
     }
     System.out.println(Calc.parse_string(expr))
 
