@@ -80,13 +80,13 @@ class Calc {
     static String parse_string(String x){
 
             List<String> result = new ArrayList<String>(Arrays.asList(x.split("(?<=[-+*/()])|(?=[-+*/()])")));
-
                 check_for_brek(result);
                 check_for_mult(result);
                 check_for_div(result);
                 check_for_sum(result);
                 check_for_sub(result);
-
+                result = result.replace("[", "")
+                result = result.replace("]", "")
 
             return result
             }
