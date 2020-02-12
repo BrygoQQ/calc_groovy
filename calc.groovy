@@ -100,8 +100,8 @@ class Calc {
     Scanner sc = new Scanner(System.in);
     String expr = sc.nextLine();
     def a = { String str = Calc.parse_string(expr) ->
-        System.out.println("Result: ${str}")
+        println "Result: ${str}" 
     }
-    System.out.println(Calc.parse_string(expr))
+    System.out.println(a)
 
    
