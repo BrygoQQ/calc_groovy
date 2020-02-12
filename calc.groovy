@@ -46,7 +46,7 @@ class Calc {
         }
         static List<String> check_for_brek(List<String> result){
             String tmp_str=""
-            for(int i=0;i<result.size();i++) {
+            for(int i=0; i<result.size(); i++) {
                 if (result[i] == "(") {
                     int j = i
                     i++
@@ -56,9 +56,10 @@ class Calc {
                     }
                     result.remove(i)
                     tmp_str = parse_string(tmp_str)
-                    System.out.println(tmp_str)
+                    System.out.println(tmp_str.size())
                     tmp_str = tmp_str.replace("[", "")
                     tmp_str = tmp_str.replace("]", "")
+                    System.out.println(tmp_str)
                     result.set(j, tmp_str)
 
                 }
@@ -66,7 +67,7 @@ class Calc {
         return result
         }
         static List<String> check_for_mult(List<String> result){
-            for(int i=0;i<result.size();i++) {
+            for(int i=0; i<result.size(); i++) {
                 if (result[i] == '*') {
                     result.set(i - 1, Double.toString(Double.parseDouble(result[i - 1]) * Double.parseDouble(result[i + 1])))
                     result.remove(i + 1)
@@ -90,7 +91,7 @@ class Calc {
         return result
         }
         static List<String> check_for_sum(List<String> result){
-            for(int i=0;i<result.size();i++) {
+            for(int i=0; i<result.size(); i++) {
                 if (result[i] == '+') {
                     result.set(i - 1, (Double.toString((Double.parseDouble(result[i - 1])) + (Double.parseDouble(result[i + 1])))))
                     result.remove(i + 1)
