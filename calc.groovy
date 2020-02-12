@@ -15,7 +15,6 @@ class Calc {
                     }
                     result.remove(i)
                     tmp_str = parse_string(tmp_str)
-                    System.out.println(tmp_str)
                     tmp_str = tmp_str.replace("[", "")
                     tmp_str = tmp_str.replace("]", "")
                     result.set(j, tmp_str)
@@ -104,6 +103,9 @@ class Calc {
     System.out.println("Enter your expression");
     Scanner sc = new Scanner(System.in);
     String expr = sc.nextLine();
+    def a = { String str = Calc.parse_string(expr) ->
+        println "Result: ${str}"
+    }
     System.out.println(Calc.parse_string(expr))
 
    
