@@ -14,7 +14,7 @@ class Calc {
                     result.remove(i)
                 }
                 result.remove(i)
-                tmp_str = parse_string(tmp_str)
+                tmp_str = calculator(tmp_str)
                 tmp_str = tmp_str.replace("[", "")
                 tmp_str = tmp_str.replace("]", "")
                 result.set(j, tmp_str)
@@ -40,10 +40,15 @@ class Calc {
     static List<String> check_for_div(List<String> result){
         for(int i=0;i<result.size();i++) {
             if (result[i] == '/') {
-                result.set(i - 1, (Double.toString((Double.parseDouble(result[i - 1]) / (Double.parseDouble(result[i + 1]))))))
-                result.remove(i + 1)
-                result.remove(i)
-                i = 0
+                if ( result[i+1] != '0') {
+                    result.set(i - 1, (Double.toString((Double.parseDouble(result[i - 1]) / (Double.parseDouble(result[i + 1]))))))
+                    result.remove(i + 1)
+                    result.remove(i)
+                    i = 0
+                } else {
+                    result = 'infinity'
+                }
+                
 
             }
         }
@@ -77,7 +82,7 @@ class Calc {
     return result
     }
 
-    static String parse_string(String x){
+    static String calculator(String x){
 
             List<String> result = new ArrayList<String>(Arrays.asList(x.split("(?<=[-+*/()])|(?=[-+*/()])")));
                 check_for_brek(result);
@@ -85,8 +90,6 @@ class Calc {
                 check_for_div(result);
                 check_for_sum(result);
                 check_for_sub(result);
-                result = result.replace("[", "")
-                result = result.replace("]", "")
 
             return result
             }
@@ -103,6 +106,6 @@ class Calc {
     println "Enter your expression"
     Scanner sc = new Scanner(System.in);
     String expr = sc.nextLine();
-    println Calc.parse_string(expr)
+    println Calc.calculator(expr)
 
    
