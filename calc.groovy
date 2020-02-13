@@ -46,7 +46,7 @@ class Calc {
                     result.remove(i)
                     i = 0
                 } else {
-                    result
+                    result.set(0, "infinity")
                 }
                 
 
