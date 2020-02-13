@@ -105,7 +105,13 @@ class Calc {
 
     println "Enter your expression"
     Scanner sc = new Scanner(System.in);
+<<<<<<< HEAD
     String expr = sc.nextLine();
     println Calc.calculator(expr)
+=======
+    // String expr = sc.nextLine();
+    String expr = '6+6'
+    println Calc.parse_string(expr)
+>>>>>>> 6424c3ef9d7a3a997402da09d69f0e84692e7e6a
 
    
