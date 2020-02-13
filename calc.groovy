@@ -4,8 +4,8 @@ import static java.lang.System.*;
 class Calc {
 
     static List<String> check_for_brek(List<String> result){
-        String tmp_str=""
-        for(int i=0;i<result.size();i++) {
+        String tmp_str = ""
+        for(int i = 0; i < result.size(); i++) {
             if (result[i] == "(") {
                 int j = i
                 i++
@@ -25,7 +25,7 @@ class Calc {
     }
 
     static List<String> check_for_mult(List<String> result){
-        for(int i=0;i<result.size();i++) {
+        for(int i = 0; i < result.size(); i++) {
             if (result[i] == '*') {
                 result.set(i - 1, Double.toString(Double.parseDouble(result[i - 1]) * Double.parseDouble(result[i + 1])))
                 result.remove(i + 1)
@@ -38,7 +38,7 @@ class Calc {
     }
 
     static List<String> check_for_div(List<String> result){
-        for(int i=0;i<result.size();i++) {
+        for(int i = 0; i < result.size(); i++) {
             if (result[i] == '/') {
                 if ( result[i+1] != '0') {
                     result.set(i - 1, (Double.toString((Double.parseDouble(result[i - 1]) / (Double.parseDouble(result[i + 1]))))))
@@ -46,7 +46,7 @@ class Calc {
                     result.remove(i)
                     i = 0
                 } else {
-                    result = 'infinity'
+                    result
                 }
                 
 
@@ -56,7 +56,7 @@ class Calc {
     }
 
     static List<String> check_for_sum(List<String> result){
-        for(int i=0;i<result.size();i++) {
+        for(int i = 0; i < result.size(); i++) {
             if (result[i] == '+') {
                 result.set(i - 1, (Double.toString((Double.parseDouble(result[i - 1])) + (Double.parseDouble(result[i + 1])))))
                 result.remove(i + 1)
@@ -69,7 +69,7 @@ class Calc {
     }
 
     static List<String> check_for_sub(List<String> result){
-            for(int i=0;i<result.size();i++) {
+            for(int i = 0; i < result.size(); i++) {
                 if (result[i] == '-') {
                     result.set(i - 1, (Double.toString((Double.parseDouble(result[i - 1])) - (Double.parseDouble(result[i + 1])))))
                     result.remove(i + 1)
@@ -85,6 +85,7 @@ class Calc {
     static String calculator(String x){
 
             List<String> result = new ArrayList<String>(Arrays.asList(x.split("(?<=[-+*/()])|(?=[-+*/()])")));
+                System.out.println(result);
                 check_for_brek(result);
                 check_for_mult(result);
                 check_for_div(result);
